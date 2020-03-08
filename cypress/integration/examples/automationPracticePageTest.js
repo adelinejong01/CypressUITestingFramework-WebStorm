@@ -1,7 +1,7 @@
 describe("Test 2: Running tests on the Automation Practice Page", function(){
 
     //This test is to validate the header of the Automation Practice Page
-    it.only("Automation Practice Page Header", function () {
+    it("Automation Practice Page Header", function () {
         //Navigating to the automation practice page
         cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
 
@@ -36,7 +36,7 @@ describe("Test 2: Running tests on the Automation Practice Page", function(){
             const radioButtonTitle = $el.text();
 
             if(radioButtonTitle.includes('Radio Button')){
-                cy.log("Found the Radio Button Example");
+                cy.log("Found the Radio Button Example title bar");
             }
         })
 
@@ -46,43 +46,64 @@ describe("Test 2: Running tests on the Automation Practice Page", function(){
 
     })
 
-    it("Dropdown functionality", function () {
-        //STATIC DROPDOWN
-        //Selecting the dropdown option to be option2 and validating the value to be so
-        cy.get('#dropdown-class-example').select('option2').should('have.value', 'option2');
+    it("Dropdown Functionality: Suggestion Class Example", function () {
+        //Navigating to the automation practice page
+        cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
 
-        //DYNAMIC DROPDOWN
-        cy.get('#autocomplete').type("Ind");
+        //We are selecting the many titles and filtering the 'Suggestion Class Example' title out of them
+        cy.get('legend').each(($el, index, $list) => {
+            const suggestionClassTitle = $el.text();
 
-        //For each of the suggestion box, we need the required option
+            if(suggestionClassTitle.includes('Suggession Class')){
+                cy.log("Found the Suggestion Class Example title bar");
+            }
+        })
+
+        //Clicking on the Autocomplete button and typing 'Ven' and then selecting the 'Venezuela' option
+        cy.get('#autocomplete').click().type("Ven");
+
+        //Here we searched for the suggestions which had 'Venezuela' text in them & clicked on the option
         cy.get('.ui-menu-item-wrapper').each(($el, index, $list) => {
-
             const countryText = $el.text();
-            if(countryText.includes('India')){
+            if(countryText.includes('Venezuela')){
                 $el.click();
             }
         })
 
-        //Validating that we have the required option in the selection with an assertion
-        cy.get('#autocomplete').should('have.value', "India");
+        cy.get('#autocomplete').should('have.value', "Venezuela");
     })
 
-    it("Handling visible and invisible elements", function(){
-        //Handling the 'Element Displayed Example'
-        //Checking if the BOX is visible
-        cy.get("#displayed-text").should('be.visible');
+    it.only("Dropdown Functionality: Dropdown Example", function(){
+        //Navigating to the automation practice page
+        cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
 
-        //Clicking on the HIDE button
-        cy.get('input[value = "Hide"]').click();
+        //We are selecting the many titles and filtering the 'Suggestion Class Example' title out of them
+        cy.get('legend').each(($el, index, $list) => {
+            const suggestionClassTitle = $el.text();
 
-        //Checking if the BOX is invisible
-        cy.get("#displayed-text").should('not.be.visible');
+            if(suggestionClassTitle.includes('Dropdown Example')){
+                cy.log("Found the Dropdown Example title bar");
+            }
+        })
 
-        //Clicking on the SHOW button
-        cy.get('input[value = "Show"]').click();
+        //Select the dropdown example
+        cy.get('#dropdown-class-example').select('Option1').should('have.value', "option1");
 
-        //Checking if the BOX is visible
-        cy.get("#displayed-text").should('be.visible');
+        // //Handling the 'Element Displayed Example'
+        // //Checking if the BOX is visible
+        // cy.get("#displayed-text").should('be.visible');
+        //
+        // //Clicking on the HIDE button
+        // cy.get('input[value = "Hide"]').click();
+        //
+        // //Checking if the BOX is invisible
+        // cy.get("#displayed-text").should('not.be.visible');
+        //
+        // //Clicking on the SHOW button
+        // cy.get('input[value = "Show"]').click();
+        //
+        // //Checking if the BOX is visible
+        // cy.get("#displayed-text").should('be.visible');
     })
 
     it("Radio Button Functionality", function () {

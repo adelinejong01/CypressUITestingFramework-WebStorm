@@ -73,7 +73,7 @@ describe("Test 2: Running tests on the Automation Practice Page", function(){
         cy.get('#autocomplete').should('have.value', "Venezuela");
     })
 
-    it.only("Dropdown Functionality: Dropdown Example", function(){
+    it("Dropdown Functionality: Dropdown Example", function(){
         //Navigating to the automation practice page
         cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
 
@@ -88,25 +88,12 @@ describe("Test 2: Running tests on the Automation Practice Page", function(){
 
         //Select the dropdown example
         cy.get('#dropdown-class-example').select('Option1').should('have.value', "option1");
-
-        // //Handling the 'Element Displayed Example'
-        // //Checking if the BOX is visible
-        // cy.get("#displayed-text").should('be.visible');
-        //
-        // //Clicking on the HIDE button
-        // cy.get('input[value = "Hide"]').click();
-        //
-        // //Checking if the BOX is invisible
-        // cy.get("#displayed-text").should('not.be.visible');
-        //
-        // //Clicking on the SHOW button
-        // cy.get('input[value = "Show"]').click();
-        //
-        // //Checking if the BOX is visible
-        // cy.get("#displayed-text").should('be.visible');
     })
 
-    it("Radio Button Functionality", function () {
+    it.only("Checkbox Functionality", function () {
+        //Navigating to the automation practice page
+        cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
+
         //Clicking on the checkbox and validating that it is checked and also validating the value option
         cy.get("#checkBoxOption1").check().should('be.checked').and('have.checked', 'option1');
 

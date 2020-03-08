@@ -21,12 +21,16 @@ describe('Started testing the home page for the QA Click Academy page', function
 
     //This TC is to verify the error message after clicking 'Subscribe Now' without providing the email id
 
-    // it("Handling the alert by subscribing to it", function () {
-    //     //Navigating to the home page
-    //     cy.visit("http://www.qaclickacademy.com/");
-    //
-    //     cy.get('.sumome-react-wysiwyg-move-handle').contains('Subscribe Now').click().
-    //         then(cy.get('.listbuilder-popup-field-error').to.match("required"));
-    // })
+    it.only("Handling the alert by subscribing to it", function () {
+        //Navigating to the home page
+        cy.visit("http://www.qaclickacademy.com/");
+
+        cy.get('.sumome-react-wysiwyg-move-handle').contains('Subscribe Now').click().
+            then(cy.get('.sumome-react-wysiwyg-move-handle > div > button').contains("required"));
+
+        //Try this when website is working
+        cy.get('#dropdown-class-example').select('option2').should('have.value', 'option2');
+    })
 
 })
+

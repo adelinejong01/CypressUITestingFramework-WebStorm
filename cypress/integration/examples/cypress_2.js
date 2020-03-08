@@ -1,16 +1,23 @@
-describe("Test 2: Handling basic functionalities of Cypress", function(){
-    it("Checkbox functionality", function(){
-        //Navigating to the practice page
+describe("Test 2: Running tests on the Automation Practice Page", function(){
+
+    //This test is to run on Radio Button Example in the Automation Practice Page
+
+    it.only("Checkbox functionality", function(){
+        //Navigating to the automation practice page
         cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
 
-        //Clicking on the checkbox and validating that it is checked and also validating the value option
-        cy.get("#checkBoxOption1").check().should('be.checked').and('have.checked', 'option1');
+        //We are selecting the many titles and filtering the 'Radio Button Example' title out of them
+        cy.get('legend').each(($el, index, $list) => {
+            const radioButtonTitle = $el.text();
+            if(radioButtonTitle.includes('Radio Button')){
+                cy.log("Found the Radio Button Example");
+            }
+        })
 
-        //Un-checking the box and validating that it is unchecked
-        cy.get('#checkBoxOption1').uncheck().should('not.be.checked');
+        //In here, we are first selecting radio1 option and then selecting radio2 option which will
+        //de-select the radio1 option
+        cy.get('input[class = "radioButton"]').check(['radio1', 'radio2']);
 
-        //Selecting multiple checkboxes and selecting the ones which are needed out of them
-        cy.get('input[type = "checkbox"]').check(['option2', 'option3']);
     })
 
     it("Dropdown functionality", function () {
@@ -53,8 +60,14 @@ describe("Test 2: Handling basic functionalities of Cypress", function(){
     })
 
     it("Radio Button Functionality", function () {
-        //Selecting the radio buttons section as Whole and then clicking on the second and the first one
-        cy.get('input[class = "radioButton"]').check(['radio1', 'radio2']);
+        //Clicking on the checkbox and validating that it is checked and also validating the value option
+        cy.get("#checkBoxOption1").check().should('be.checked').and('have.checked', 'option1');
+
+        //Un-checking the box and validating that it is unchecked
+        cy.get('#checkBoxOption1').uncheck().should('not.be.checked');
+
+        //Selecting multiple checkboxes and selecting the ones which are needed out of them
+        cy.get('input[type = "checkbox"]').check(['option2', 'option3']);
     })
 
 })

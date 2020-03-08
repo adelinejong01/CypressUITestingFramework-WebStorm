@@ -1,14 +1,40 @@
 describe("Test 2: Running tests on the Automation Practice Page", function(){
 
-    //This test is to run on Radio Button Example in the Automation Practice Page
+    //This test is to validate the header of the Automation Practice Page
+    it.only("Automation Practice Page Header", function () {
+        //Navigating to the automation practice page
+        cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
 
-    it.only("Checkbox functionality", function(){
+        //Using a Chai assertion here to make sure that the blinking Text is visible
+        cy.get('.blinkingText').should('be.visible');
+
+        //Inserting a Chai assertion which makes sure that the required text is present
+        cy.get('.blinkingText').should('have.text', 'Limited offer - FREE Core Java & QA Resume course');
+
+        //Clicking the Home button, making sure that the link opens in the same browser and then navigating back
+        cy.get('a > .btn').contains('Home').click();
+        cy.url().should('include', "https://www.rahulshettyacademy.com/#/index");
+        cy.go('back');
+
+        //Clicking the Practice button and making sure that it is visible
+        cy.get("button[class = 'btn btn-primary']").contains('Practice').should('be.visible');
+
+        //Clicking the Login button and making sure that it is visible
+        cy.get("button[class = 'btn btn-primary']").contains('Login').should('be.visible');
+
+        //Clicking the Signup button and making sure that it is visible
+        cy.get("button[class = 'btn btn-primary']").contains('Signup').should('be.visible');
+    })
+
+    //This test is to run on Radio Button Example in the Automation Practice Page
+    it("Radio Button Example Functionality", function(){
         //Navigating to the automation practice page
         cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
 
         //We are selecting the many titles and filtering the 'Radio Button Example' title out of them
         cy.get('legend').each(($el, index, $list) => {
             const radioButtonTitle = $el.text();
+
             if(radioButtonTitle.includes('Radio Button')){
                 cy.log("Found the Radio Button Example");
             }

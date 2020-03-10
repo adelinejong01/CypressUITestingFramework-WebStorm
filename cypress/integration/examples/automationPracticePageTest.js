@@ -1,4 +1,5 @@
 describe("Test 2: Running tests on the Automation Practice Page", function(){
+    //Have a test which runs before all of these by opening the Automation Practice Page
 
     //This test is to validate the header of the Automation Practice Page
     it("Automation Practice Page Header", function () {
@@ -77,7 +78,7 @@ describe("Test 2: Running tests on the Automation Practice Page", function(){
         //Navigating to the automation practice page
         cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
 
-        //We are selecting the many titles and filtering the 'Suggestion Class Example' title out of them
+        //We are selecting the many titles and filtering the 'Dropdown Example' title out of them
         cy.get('legend').each(($el, index, $list) => {
             const suggestionClassTitle = $el.text();
 
@@ -90,9 +91,18 @@ describe("Test 2: Running tests on the Automation Practice Page", function(){
         cy.get('#dropdown-class-example').select('Option1').should('have.value', "option1");
     })
 
-    it.only("Checkbox Functionality", function () {
+    it("Checkbox Functionality", function () {
         //Navigating to the automation practice page
         cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
+
+        //We are selecting the many titles and filtering the 'Checkbox Example' title out of them
+        cy.get('legend').each(($el, index, $list) => {
+            const suggestionClassTitle = $el.text();
+
+            if(suggestionClassTitle.includes('Checkbox Example')){
+                cy.log("Found the Checkbox Example title bar");
+            }
+        })
 
         //Clicking on the checkbox and validating that it is checked and also validating the value option
         cy.get("#checkBoxOption1").check().should('be.checked').and('have.checked', 'option1');
@@ -102,6 +112,24 @@ describe("Test 2: Running tests on the Automation Practice Page", function(){
 
         //Selecting multiple checkboxes and selecting the ones which are needed out of them
         cy.get('input[type = "checkbox"]').check(['option2', 'option3']);
+    })
+
+    it("Switch Window Functionality", function () {
+        //Navigating to the automation practice page
+        cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
+
+        //We are selecting the many titles and filtering the 'Switch Window Example' title out of them
+        cy.get('legend').each(($el, index, $list) => {
+            const suggestionClassTitle = $el.text();
+
+            if(suggestionClassTitle.includes('Switch Window Example')){
+                cy.log("Found the Switch Window Example title bar");
+            }
+        })
+
+        //Here we are clicking on the "Open Window" button which opens a tab in a new window.
+        //So, we ned to check if the button has the appropriate attribute and then open the link in the same tab
+        cy.get('#openwindow').contains('Open Window').invoke('attr', 'onclick').should('contain', "openWindow()");
     })
 
 })

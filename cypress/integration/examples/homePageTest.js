@@ -21,16 +21,18 @@ describe('Started testing the home page for the QA Click Academy page', function
 
     //This TC is to verify the error message after clicking 'Subscribe Now' without providing the email id
 
-    it.only("Handling the alert by subscribing to it", function () {
+    it("Handling the alert by subscribing to it", function () {
         //Navigating to the home page
         cy.visit("http://www.qaclickacademy.com/");
 
-        cy.get('.sumome-react-wysiwyg-move-handle').contains('Subscribe Now').click().
-            then(cy.get('.sumome-react-wysiwyg-move-handle > div > button').contains("required"));
+        //Click on 'Subscribe Now' without entering an email-id
+        cy.get('.sumome-react-wysiwyg-move-handle').contains('Subscribe Now').click();
 
-        //Try this when website is working
-        cy.get('#dropdown-class-example').select('option2').should('have.value', 'option2');
+        //Capturing the error which gets generated and verifying the text
+        //Finally, could verify this. Yayy!!
+        cy.get('.listbuilder-popup-field-error').should('have.text', 'This field is required.');
     })
+
 
 })
 

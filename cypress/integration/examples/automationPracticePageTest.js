@@ -128,7 +128,9 @@ describe("Test 2: Running tests on the Automation Practice Page", function(){
         })
 
         //Here we are clicking on the "Open Window" button which opens a tab in a new window.
-        //So, we ned to check if the button has the appropriate attribute and then open the link in the same tab
+        //So, we need to check if the button has the appropriate attribute and then open the link in the same tab
+        //We cannot check the 'href' attribute here as this button is linked to a function which handles which tab clicking on this should re-direct to
+        //Hence we are just checking the function. Major discovery made here. yayy!!
         cy.get('#openwindow').contains('Open Window').invoke('attr', 'onclick').should('contain', "openWindow()");
     })
 

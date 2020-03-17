@@ -47,6 +47,7 @@ describe("Test 2: Running tests on the Automation Practice Page", function(){
 
     })
 
+    //This test is to test the Dropdown functionality: Dynamic Suggestions Example
     it("Dropdown Functionality: Suggestion Class Example", function () {
         //Navigating to the automation practice page
         cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
@@ -74,6 +75,7 @@ describe("Test 2: Running tests on the Automation Practice Page", function(){
         cy.get('#autocomplete').should('have.value', "Venezuela");
     })
 
+    //This test is to test the Dropdown functionality with static dropdown options
     it("Dropdown Functionality: Dropdown Example", function(){
         //Navigating to the automation practice page
         cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
@@ -91,6 +93,7 @@ describe("Test 2: Running tests on the Automation Practice Page", function(){
         cy.get('#dropdown-class-example').select('Option1').should('have.value', "option1");
     })
 
+    //This test is to test the checkbox functionality
     it("Checkbox Functionality", function () {
         //Navigating to the automation practice page
         cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
@@ -114,6 +117,7 @@ describe("Test 2: Running tests on the Automation Practice Page", function(){
         cy.get('input[type = "checkbox"]').check(['option2', 'option3']);
     })
 
+    //This test is to test the buttons which navigate one to another window
     it("Switch Window Functionality", function () {
         //Navigating to the automation practice page
         cy.visit("https://rahulshettyacademy.com/AutomationPractice/");

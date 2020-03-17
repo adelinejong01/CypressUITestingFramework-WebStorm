@@ -33,6 +33,26 @@ describe('Started testing the home page for the QA Click Academy page', function
         cy.get('.listbuilder-popup-field-error').should('have.text', 'This field is required.');
     })
 
+    it("Entering the email and Subscribing for the email", function () {
+        //Navigating to the home page
+        cy.visit("http://www.qaclickacademy.com/");
+
+        //Verifying if the alert exists in the DOM of the page
+        cy.get('.sumome-react-wysiwyg-move-handle').should('exist');
+
+        //Entering the email
+        cy.get("input").type("batman@gotham.com");
+
+        //Click on 'Subscribe Now' and verify if the 'Success' popup opens
+        cy.get('.sumome-react-wysiwyg-move-handle').contains('Subscribe Now').click();
+        cy.get('.sumome-react-wysiwyg-move-handle').should('contain', 'Success');
+
+        //Clicking on the Continue button to close the alert
+        cy.get('.sumome-react-wysiwyg-move-handle > div > button').should('contain', 'Continue').click();
+
+        //Verifying if the alert does not exist in the DOM of the page
+        cy.get('.sumome-react-wysiwyg-move-handle').should('not.exist');
+    })
 
 })
 

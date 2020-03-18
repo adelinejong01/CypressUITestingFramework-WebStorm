@@ -138,4 +138,29 @@ describe("Test 2: Running tests on the Automation Practice Page", function(){
         cy.get('#openwindow').contains('Open Window').invoke('attr', 'onclick').should('contain', "openWindow()");
     })
 
+    //This test is to test Switch Tab functionality
+    it("Switch Tab Functionality", function(){
+        //Navigating to the automation practice page
+        cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
+
+        //We are selecting the many titles and filtering the 'Switch Window Example' title out of them
+        cy.get('legend').each(($el, index, $list) => {
+            const suggestionClassTitle = $el.text();
+
+            if(suggestionClassTitle.includes('Switch Tab Example')){
+                cy.log("Found the Switch Tab Example title bar");
+            }
+        })
+
+        //Clicking on a link which redirects the operation to a child page
+        //Here we are removing an attribute called target thus making the link open in the same parent window
+        cy.get('#opentab').invoke('removeAttr', 'target').click();
+
+        //Validating the URL fo the new page to which we travelled to
+        cy.url().should('include',"https://www.rahulshettyacademy.com/#/index")
+
+        //We now need to navigate back to the web page
+        cy.go('back');
+    })
+
 })

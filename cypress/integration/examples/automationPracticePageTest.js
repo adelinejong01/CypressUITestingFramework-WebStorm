@@ -163,8 +163,8 @@ describe("Test 2: Running tests on the Automation Practice Page", function(){
         cy.go('back');
     })
 
-    //This test is to test Alert functionality
-    it("Switch To Alert Functionality", function(){
+    //This test is to test Alert functionality - Alert Button
+    it("Switch To Alert Functionality: Part I", function(){
         //Navigating to the automation practice page
         cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
 
@@ -197,4 +197,21 @@ describe("Test 2: Running tests on the Automation Practice Page", function(){
         })
     })
 
+    //This test is to test Alert functionality - Confirm Button
+    it("Switch To Alert Functionality: Part II", function(){
+        //Navigating to the automation practice page
+        cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
+
+        //Entering the text in the Alert Box
+        cy.get('input[placeholder = "Enter Your Name"]').type("Batman");
+
+        //Clicking the 'Alert' button
+        cy.get('input[value = "Confirm"]').click();
+
+        //Checking that the alert text is what it is supposed to be
+        cy.on('window:confirm', (confirmString) => {
+            //This is a Mocha assertion
+            expect(confirmString).to.equal("Hello Batman, Are you sure you want to confirm?");
+        })
+    })
 })

@@ -214,4 +214,35 @@ describe("Test 2: Running tests on the Automation Practice Page", function(){
             expect(confirmString).to.equal("Hello Batman, Are you sure you want to confirm?");
         })
     })
+
+    //This test is to test Alert functionality - Confirm Button
+    it("Web Table Example", function(){
+        //Navigating to the automation practice page
+        cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
+
+        //We are selecting the many titles and filtering the 'Switch To Alert Example' title out of them
+        cy.get('legend').each(($el, index, $list) => {
+            const suggestionClassTitle = $el.text();
+
+            if(suggestionClassTitle.includes('Web Table Example')){
+                cy.log("Found the Web Table Example title bar");
+            }
+        })
+
+        //Checking if the Course column containing 'Python' has the Price value of '25'
+        cy.get('tr td:nth-child(2)').each(($el, index, $list) => {
+
+            //Declaring a constant called 'text'
+            const text = $el.text()
+
+            //Checking here for the Course column containing 'Python'
+            if(text.includes("Python")){
+                //Here we are shifting to the next column using the '.next()' function
+                cy.get("tr td:nth-child(2)").eq(index).next().then(function(price){
+                    expect(price.text()).to.equal("25");
+                })
+            }
+        })
+
+    })
 })

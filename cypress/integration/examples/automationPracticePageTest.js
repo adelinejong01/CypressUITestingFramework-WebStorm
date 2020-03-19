@@ -1,3 +1,5 @@
+// import * as $el from "mocha";
+
 describe("Test 2: Running tests on the Automation Practice Page", function(){
     //Have a test which runs before all of these by opening the Automation Practice Page
 
@@ -216,7 +218,7 @@ describe("Test 2: Running tests on the Automation Practice Page", function(){
     })
 
     //This test is to test Alert functionality - Confirm Button
-    it("Web Table Example", function(){
+    it("Web Table Example: Part I", function(){
         //Navigating to the automation practice page
         cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
 
@@ -243,6 +245,27 @@ describe("Test 2: Running tests on the Automation Practice Page", function(){
                 })
             }
         })
+    })
 
+    it.only("Web Table Example: Part II", function () {
+        //Navigating to the automation practice page
+        cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
+
+
+        cy.get('tr td:nth-child(2)').each(($el, index, $list) => {
+            //Declaring a constant called 'count'
+            let count = 0;
+            const text2 = $el.text();
+
+            //Checking here for the Course column containing 'Python'
+            if (text2.includes("Selenium")) {
+                //Here we are shifting to the next column using the '.next()' function
+                cy.get("tr td:nth-child(2)").eq(index).next().then(function (cost) {
+                    count += cost;
+                })
+            }
+
+            console.log(count);
+        })
     })
 })

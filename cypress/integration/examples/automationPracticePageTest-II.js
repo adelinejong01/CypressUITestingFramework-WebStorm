@@ -58,7 +58,7 @@ describe("Running tests on the Automation Practice Page - Part II", function(){
         //Navigating to the automation practice page
         cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
 
-        //We are selecting the many titles and filtering the 'Switch To Alert Example' title out of them
+        //We are selecting the many titles and filtering the 'Web Table Example Example' title out of them
         cy.get('legend').each(($el, index, $list) => {
             const suggestionClassTitle = $el.text();
 
@@ -112,7 +112,7 @@ describe("Running tests on the Automation Practice Page - Part II", function(){
     })
 
     //This test is to check if Elements can be displayed or not
-    it.only("Element Displayed Example", function() {
+    it("Element Displayed Example", function() {
         //Navigating to the automation practice page
         cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
 
@@ -140,5 +140,36 @@ describe("Running tests on the Automation Practice Page - Part II", function(){
 
         //Checking if the BOX is visible
         cy.get("#displayed-text").should('be.visible');
+    })
+
+    //This test is to check the Mouse Hover Functionality
+    it.only("Mouse Hover Example", function () {
+        //Navigating to the automation practice page
+        cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
+
+        //We are selecting the many titles and filtering the 'Mouse Hover Example' title out of them
+        cy.get('legend').each(($el, index, $list) => {
+            const suggestionClassTitle = $el.text();
+
+            if (suggestionClassTitle.includes('Mouse Hover Example')) {
+                cy.log("Found the Mouse Hover Example title bar");
+            }
+        })
+
+        //Here we cannot use Cypress commands to invoke mouse hover actions
+        //So, we are using the DOM of the page to perform the hovering action
+        cy.get('.mouse-hover-content').invoke('show');
+        cy.contains("Top").click();
+
+        //Verifying that clicking on the button has taken to the TOP of the page
+        cy.url().should('include', 'top');
+
+        //Here we are trying to invoke the reload option
+        cy.get('.mouse-hover-content').invoke('show');
+        cy.contains("Reload").click();
+
+        //Verifying that clicking on the button has reloaded the page
+        cy.url().should('not.contain', 'top');
+
     })
 })

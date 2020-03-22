@@ -247,25 +247,31 @@ describe("Test 2: Running tests on the Automation Practice Page", function(){
         })
     })
 
-    it.only("Web Table Example: Part II", function () {
+    //Here, we are trying to get the sum of costs of all courses which have Selenium in them
+    //The expected value is '105'
+    it("Web Table Example: Part II", function () {
         //Navigating to the automation practice page
         cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
 
+        //Declaring a global variable called 'count'
+        var count = 0;
 
         cy.get('tr td:nth-child(2)').each(($el, index, $list) => {
-            //Declaring a constant called 'count'
-            let count = 0;
             const text2 = $el.text();
 
-            //Checking here for the Course column containing 'Python'
+            //Checking here for the Course column containing 'Selenium'
             if (text2.includes("Selenium")) {
                 //Here we are shifting to the next column using the '.next()' function
                 cy.get("tr td:nth-child(2)").eq(index).next().then(function (cost) {
-                    count += cost;
+                    //expect(cost.text()).to.equal("25");
+                    // cy.log("The cost is: " + Number(cost.text()));
+                    count = count + Number(cost.text());
+                    // cy.log("The complete count value is " + count);
                 })
             }
-
-            console.log(count);
-        })
+        }).then(function () {
+            //Asserting that the value found is equal to the one which has been calculated
+            assert.equal(count, 105)
+        });
     })
 })

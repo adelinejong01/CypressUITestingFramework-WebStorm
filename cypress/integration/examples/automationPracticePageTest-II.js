@@ -143,7 +143,7 @@ describe("Running tests on the Automation Practice Page - Part II", function(){
     })
 
     //This test is to check the Mouse Hover Functionality
-    it.only("Mouse Hover Example", function () {
+    it("Mouse Hover Example", function () {
         //Navigating to the automation practice page
         cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
 

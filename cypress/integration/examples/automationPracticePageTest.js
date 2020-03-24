@@ -1,5 +1,3 @@
-// import * as $el from "mocha";
-
 describe("Test 2: Running tests on the Automation Practice Page - Part I", function(){
     //Have a test which runs before all of these by opening the Automation Practice Page
 

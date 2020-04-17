@@ -1,5 +1,4 @@
 describe("Testing Angular Page to check Cypress functionality", function () {
-
     beforeEach(function () {
         cy.log("Navigating to the Angular Practice Page")
         cy.visit("https://rahulshettyacademy.com/angularpractice/");

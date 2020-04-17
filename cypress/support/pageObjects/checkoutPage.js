@@ -1,6 +1,5 @@
 class checkoutPage{
     //This deals with the objects in the CART and similar functionality pages
-
     getCheckoutButton(){
         return cy.get('a.nav-link.btn.btn-primary') }
 

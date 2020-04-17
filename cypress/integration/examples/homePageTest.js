@@ -1,4 +1,3 @@
-
 describe('Started testing the home page for the QA Click Academy page', function(){
     beforeEach(function () {
         //Navigating to the home page

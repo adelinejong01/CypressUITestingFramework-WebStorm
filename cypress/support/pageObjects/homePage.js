@@ -1,6 +1,5 @@
 class homePage{
     //This deals with the objects on the Home Page. Yayy!! POM started.
-
     getNameBox(){
         return cy.get('input[name = "name"]:nth-child(2)') }
 

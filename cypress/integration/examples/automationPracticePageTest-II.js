@@ -1,18 +1,21 @@
 import 'cypress-iframe'
+import automationPage from "../../support/pageObjects/automationPage";
+import automationPageII from "../../support/pageObjects/automationPageII";
 
 describe("Running tests on the Automation Practice Page - Part II", function(){
-    //Have a test which runs before all of these by opening the Automation Practice Page
-
     beforeEach(function () {
+        const autoPageVar = new automationPage();
         //Navigating to the automation practice page
-        cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
+        autoPageVar.travelToAutomationPracticePage();
     })
-
 
     //This test is to test Alert functionality - Alert Button
     it("Switch To Alert Functionality: Part I", function(){
+        const autoPageVar = new automationPage();
+        const autoPageVarII = new automationPageII();
+
         //We are selecting the many titles and filtering the 'Switch To Alert Example' title out of them
-        cy.get('legend').each(($el, index, $list) => {
+        autoPageVar.getLegend().each(($el, index, $list) => {
             const suggestionClassTitle = $el.text();
 
             if(suggestionClassTitle.includes('Switch To Alert Example')){
@@ -22,16 +25,16 @@ describe("Running tests on the Automation Practice Page - Part II", function(){
 
         //Checking that the text box where we enter the text for the alert exist.
         //Because checking the attribute of an element is not directly possible, at least to my knowledge, in Cypress, we have divided it into two parts
-        cy.get('input[name = "enter-name"]').should('have.attr', "placeholder");
+        autoPageVarII.getNameBox().should('have.attr', "placeholder");
 
         //Here is the second part where we are checking the placeholder text is "Enter Your Name" exists
-        cy.get('input[placeholder = "Enter Your Name"]').should('exist');
+        autoPageVarII.getNamePlaceholder().should('exist');
 
         //Entering the text in the Alert Box
-        cy.get('input[placeholder = "Enter Your Name"]').type("Batman");
+        autoPageVarII.getNamePlaceholder().type("Batman");
 
         //Clicking the 'Alert' button
-        cy.get('#alertbtn').click();
+        autoPageVarII.getAlertButton().click();
 
         //Checking that the alert text is what it is supposed to be
         cy.on('window:alert', (alertString) => {
@@ -42,11 +45,13 @@ describe("Running tests on the Automation Practice Page - Part II", function(){
 
     //This test is to test Alert functionality - Confirm Button
     it("Switch To Alert Functionality: Part II", function(){
+        const autoPageVarII = new automationPageII();
+
         //Entering the text in the Alert Box
-        cy.get('input[placeholder = "Enter Your Name"]').type("Batman");
+        autoPageVarII.getNamePlaceholder().type("Batman");
 
         //Clicking the 'Alert' button
-        cy.get('input[value = "Confirm"]').click();
+        autoPageVarII.getConfirm().click();
 
         //Checking that the alert text is what it is supposed to be
         cy.on('window:confirm', (confirmString) => {
@@ -57,8 +62,11 @@ describe("Running tests on the Automation Practice Page - Part II", function(){
 
     //This test is to check if Cypress can parse the Web Table
     it("Web Table Example: Part I", function(){
+        const autoPageVar = new automationPage();
+        const autoPageVarII = new automationPageII();
+
         //We are selecting the many titles and filtering the 'Web Table Example Example' title out of them
-        cy.get('legend').each(($el, index, $list) => {
+        autoPageVar.getLegend().each(($el, index, $list) => {
             const suggestionClassTitle = $el.text();
 
             if(suggestionClassTitle.includes('Web Table Example')){
@@ -67,7 +75,7 @@ describe("Running tests on the Automation Practice Page - Part II", function(){
         })
 
         //Checking if the Course column containing 'Python' has the Price value of '25'
-        cy.get('tr td:nth-child(2)').each(($el, index, $list) => {
+        autoPageVarII.getSecondChildInTable().each(($el, index, $list) => {
 
             //Declaring a constant called 'text'
             const text = $el.text()
@@ -75,7 +83,7 @@ describe("Running tests on the Automation Practice Page - Part II", function(){
             //Checking here for the Course column containing 'Python'
             if(text.includes("Python")){
                 //Here we are shifting to the next column using the '.next()' function
-                cy.get("tr td:nth-child(2)").eq(index).next().then(function(price){
+                autoPageVarII.getSecondChildInTable().eq(index).next().then(function(price){
                     expect(price.text()).to.equal("25");
                 })
             }
@@ -85,20 +93,19 @@ describe("Running tests on the Automation Practice Page - Part II", function(){
     //Here, we are trying to get the sum of costs of all courses which have Selenium in them
     //The expected value is '105'
     it("Web Table Example: Part II", function () {
-        //Declaring a global variable called 'count'
-        var count = 0;
+        const autoPageVarII = new automationPageII();
 
-        cy.get('tr td:nth-child(2)').each(($el, index, $list) => {
+        //Declaring a global variable called 'count'
+        let count = 0;
+
+        autoPageVarII.getSecondChildInTable().each(($el, index, $list) => {
             const text2 = $el.text();
 
             //Checking here for the Course column containing 'Selenium'
             if (text2.includes("Selenium")) {
                 //Here we are shifting to the next column using the '.next()' function
-                cy.get("tr td:nth-child(2)").eq(index).next().then(function (cost) {
-                    //expect(cost.text()).to.equal("25");
-                    // cy.log("The cost is: " + Number(cost.text()));
+                autoPageVarII.getSecondChildInTable().eq(index).next().then(function (cost) {
                     count = count + Number(cost.text());
-                    // cy.log("The complete count value is " + count);
                 })
             }
         }).then(function () {
@@ -109,8 +116,11 @@ describe("Running tests on the Automation Practice Page - Part II", function(){
 
     //This test is to check if Elements can be displayed or not
     it("Element Displayed Example", function() {
+        const autoPageVar = new automationPage();
+        const autoPageVarII = new automationPageII();
+
         //We are selecting the many titles and filtering the 'Switch To Alert Example' title out of them
-        cy.get('legend').each(($el, index, $list) => {
+        autoPageVar.getLegend().each(($el, index, $list) => {
             const suggestionClassTitle = $el.text();
 
             if (suggestionClassTitle.includes('Element Displayed Example')) {
@@ -120,25 +130,28 @@ describe("Running tests on the Automation Practice Page - Part II", function(){
 
         //Handling the 'Element Displayed Example'
         //Checking if the BOX is visible
-        cy.get("#displayed-text").should('be.visible');
+        autoPageVarII.getDisplayedText().should('be.visible');
 
         //Clicking on the HIDE button
-        cy.get('input[value = "Hide"]').click();
+        autoPageVarII.getHideButton().click();
 
         //Checking if the BOX is invisible
-        cy.get("#displayed-text").should('not.be.visible');
+        autoPageVarII.getDisplayedText().should('not.be.visible');
 
         //Clicking on the SHOW button
-        cy.get('input[value = "Show"]').click();
+        autoPageVarII.getShowButton().click();
 
         //Checking if the BOX is visible
-        cy.get("#displayed-text").should('be.visible');
+        autoPageVarII.getDisplayedText().should('be.visible');
     })
 
     //This test is to check the Mouse Hover Functionality
     it("Mouse Hover Example", function () {
+        const autoPageVar = new automationPage();
+        const autoPageVarII = new automationPageII();
+
         //We are selecting the many titles and filtering the 'Mouse Hover Example' title out of them
-        cy.get('legend').each(($el, index, $list) => {
+        autoPageVar.getLegend().each(($el, index, $list) => {
             const suggestionClassTitle = $el.text();
 
             if (suggestionClassTitle.includes('Mouse Hover Example')) {
@@ -148,14 +161,14 @@ describe("Running tests on the Automation Practice Page - Part II", function(){
 
         //Here we cannot use Cypress commands to invoke mouse hover actions
         //So, we are using the DOM of the page to perform the hovering action
-        cy.get('.mouse-hover-content').invoke('show');
+        autoPageVarII.getMouseHoverContent().invoke('show');
         cy.contains("Top").click();
 
         //Verifying that clicking on the button has taken to the TOP of the page
         cy.url().should('include', 'top');
 
         //Here we are trying to invoke the reload option
-        cy.get('.mouse-hover-content').invoke('show');
+        autoPageVarII.getMouseHoverContent().invoke('show');
         cy.contains("Reload").click();
 
         //Verifying that clicking on the button has reloaded the page
@@ -163,20 +176,22 @@ describe("Running tests on the Automation Practice Page - Part II", function(){
     })
 
     it("Handling frames", function(){
+        const autoPageVarII = new automationPageII();
+
         cy.log("Handling frames here")
 
         //Here we have entered the iframe using the id
-        cy.frameLoaded("#courses-iframe")
+        autoPageVarII.loadFrames()
 
         //To start working on the iframe, we need to use the 'cy.iframe()' command
         //To click on any command in the iframe, we need to use '.find()' and not '.get()'
         //Here, we clicked on one of the links in the header of the page
-        cy.iframe().find("a[href = '#/mentorship']").eq(0).click()
+        autoPageVarII.frameMentorshipLink().eq(0).click()
 
         //We are now verifying if clicking on the link has opened the particular box
-        cy.iframe().find(".inner-box").should("contain", "Mentorship")
+        autoPageVarII.frameInnerBox().should("contain", "Mentorship")
 
         //Finding if the number of packages are 2
-        cy.iframe().find(".pricing-title").should('have.length', 2)
+        autoPageVarII.framePricingTitle().should('have.length', 2)
     })
 })

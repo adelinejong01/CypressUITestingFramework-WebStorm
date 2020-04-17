@@ -3,11 +3,14 @@ import 'cypress-iframe'
 describe("Running tests on the Automation Practice Page - Part II", function(){
     //Have a test which runs before all of these by opening the Automation Practice Page
 
-    //This test is to test Alert functionality - Alert Button
-    it("Switch To Alert Functionality: Part I", function(){
+    beforeEach(function () {
         //Navigating to the automation practice page
         cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
+    })
 
+
+    //This test is to test Alert functionality - Alert Button
+    it("Switch To Alert Functionality: Part I", function(){
         //We are selecting the many titles and filtering the 'Switch To Alert Example' title out of them
         cy.get('legend').each(($el, index, $list) => {
             const suggestionClassTitle = $el.text();
@@ -39,9 +42,6 @@ describe("Running tests on the Automation Practice Page - Part II", function(){
 
     //This test is to test Alert functionality - Confirm Button
     it("Switch To Alert Functionality: Part II", function(){
-        //Navigating to the automation practice page
-        cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
-
         //Entering the text in the Alert Box
         cy.get('input[placeholder = "Enter Your Name"]').type("Batman");
 
@@ -57,9 +57,6 @@ describe("Running tests on the Automation Practice Page - Part II", function(){
 
     //This test is to check if Cypress can parse the Web Table
     it("Web Table Example: Part I", function(){
-        //Navigating to the automation practice page
-        cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
-
         //We are selecting the many titles and filtering the 'Web Table Example Example' title out of them
         cy.get('legend').each(($el, index, $list) => {
             const suggestionClassTitle = $el.text();
@@ -88,9 +85,6 @@ describe("Running tests on the Automation Practice Page - Part II", function(){
     //Here, we are trying to get the sum of costs of all courses which have Selenium in them
     //The expected value is '105'
     it("Web Table Example: Part II", function () {
-        //Navigating to the automation practice page
-        cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
-
         //Declaring a global variable called 'count'
         var count = 0;
 
@@ -115,9 +109,6 @@ describe("Running tests on the Automation Practice Page - Part II", function(){
 
     //This test is to check if Elements can be displayed or not
     it("Element Displayed Example", function() {
-        //Navigating to the automation practice page
-        cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
-
         //We are selecting the many titles and filtering the 'Switch To Alert Example' title out of them
         cy.get('legend').each(($el, index, $list) => {
             const suggestionClassTitle = $el.text();
@@ -146,9 +137,6 @@ describe("Running tests on the Automation Practice Page - Part II", function(){
 
     //This test is to check the Mouse Hover Functionality
     it("Mouse Hover Example", function () {
-        //Navigating to the automation practice page
-        cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
-
         //We are selecting the many titles and filtering the 'Mouse Hover Example' title out of them
         cy.get('legend').each(($el, index, $list) => {
             const suggestionClassTitle = $el.text();
@@ -176,9 +164,6 @@ describe("Running tests on the Automation Practice Page - Part II", function(){
 
     it("Handling frames", function(){
         cy.log("Handling frames here")
-
-        //Visiting the webpage which has the iframe
-        cy.visit("https://rahulshettyacademy.com/AutomationPractice/")
 
         //Here we have entered the iframe using the id
         cy.frameLoaded("#courses-iframe")

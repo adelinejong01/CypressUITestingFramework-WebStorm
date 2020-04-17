@@ -1,10 +1,13 @@
 describe("Test 2: Running tests on the Automation Practice Page - Part I", function(){
     //Have a test which runs before all of these by opening the Automation Practice Page
 
-    //This test is to validate the header of the Automation Practice Page
-    it("Automation Practice Page Header", function () {
+    beforeEach(function () {
         //Navigating to the automation practice page
         cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
+    })
+
+    //This test is to validate the header of the Automation Practice Page
+    it("Automation Practice Page Header", function () {
 
         //Using a Chai assertion here to make sure that the blinking Text is visible
         cy.get('.blinkingText').should('be.visible');
@@ -29,9 +32,6 @@ describe("Test 2: Running tests on the Automation Practice Page - Part I", funct
 
     //This test is to run on Radio Button Example in the Automation Practice Page
     it("Radio Button Example Functionality", function(){
-        //Navigating to the automation practice page
-        cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
-
         //We are selecting the many titles and filtering the 'Radio Button Example' title out of them
         cy.get('legend').each(($el, index, $list) => {
             const radioButtonTitle = $el.text();
@@ -49,9 +49,6 @@ describe("Test 2: Running tests on the Automation Practice Page - Part I", funct
 
     //This test is to test the Dropdown functionality: Dynamic Suggestions Example
     it("Dropdown Functionality: Suggestion Class Example", function () {
-        //Navigating to the automation practice page
-        cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
-
         //We are selecting the many titles and filtering the 'Suggestion Class Example' title out of them
         cy.get('legend').each(($el, index, $list) => {
             const suggestionClassTitle = $el.text();
@@ -77,9 +74,6 @@ describe("Test 2: Running tests on the Automation Practice Page - Part I", funct
 
     //This test is to test the Dropdown functionality with static dropdown options
     it("Dropdown Functionality: Dropdown Example", function(){
-        //Navigating to the automation practice page
-        cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
-
         //We are selecting the many titles and filtering the 'Dropdown Example' title out of them
         cy.get('legend').each(($el, index, $list) => {
             const suggestionClassTitle = $el.text();
@@ -95,9 +89,6 @@ describe("Test 2: Running tests on the Automation Practice Page - Part I", funct
 
     //This test is to test the checkbox functionality
     it("Checkbox Functionality", function () {
-        //Navigating to the automation practice page
-        cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
-
         //We are selecting the many titles and filtering the 'Checkbox Example' title out of them
         cy.get('legend').each(($el, index, $list) => {
             const suggestionClassTitle = $el.text();
@@ -119,9 +110,6 @@ describe("Test 2: Running tests on the Automation Practice Page - Part I", funct
 
     //This test is to test the buttons which navigate one to another window
     it("Switch Window Functionality", function () {
-        //Navigating to the automation practice page
-        cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
-
         //We are selecting the many titles and filtering the 'Switch Window Example' title out of them
         cy.get('legend').each(($el, index, $list) => {
             const suggestionClassTitle = $el.text();
@@ -140,9 +128,6 @@ describe("Test 2: Running tests on the Automation Practice Page - Part I", funct
 
     //This test is to test Switch Tab functionality
     it("Switch Tab Functionality", function(){
-        //Navigating to the automation practice page
-        cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
-
         //We are selecting the many titles and filtering the 'Switch Window Example' title out of them
         cy.get('legend').each(($el, index, $list) => {
             const suggestionClassTitle = $el.text();

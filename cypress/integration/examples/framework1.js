@@ -18,8 +18,6 @@ describe("Framework 1: Framework Test Suite", function(){
     it("Verifying the home page", function () {
         const homePageVar = new homePage();
 
-        // cy.visit("https://rahulshettyacademy.com/angularpractice/");
-
         //We call it using this.details or Cypress would not know what variable we are referring to
         homePageVar.getNameBox().type(this.details.name);
         homePageVar.getGenderBox().select(this.details.gender);
@@ -28,11 +26,10 @@ describe("Framework 1: Framework Test Suite", function(){
         homePageVar.getTwoWayDataBindingBox().should('have.value', this.details.name);
 
         //verifying that the attribute 'min-length' is '2'
-        cy.get('input[name = "name"]:nth-child(2)').should('have.attr', 'minlength', '2');
+        homePageVar.getSecondChild().should('have.attr','minlength','2');
 
         //Verifying that the third option named 'Entrepreneur' is disabled
         homePageVar.getEntrepreneurButton().should('be.disabled');
-
     })
 
     it("Doing some shopping now!!", function () {
@@ -102,7 +99,7 @@ describe("Framework 1: Framework Test Suite", function(){
         checkoutPageVar.getFirstSuggestion().click();
 
         //Waiting for 3 seconds
-        cy.wait(3000);
+        checkoutPageVar.waitForThreeSeconds();
 
         //Click on the "Terms and Conditions" check box
         checkoutPageVar.getTermsConditionsCheckBox().click();
@@ -114,6 +111,6 @@ describe("Framework 1: Framework Test Suite", function(){
         checkoutPageVar.checkSuccessAlert().should('be.visible');
 
         //Checking the text of the alert
-        cy.get('.alert').should('contain', "Success! Thank you! Your order will be delivered in next few weeks :-).");
+        checkoutPageVar.getAlert().should('contain', "Success! Thank you! Your order will be delivered in next few weeks :-).");
     })
 })

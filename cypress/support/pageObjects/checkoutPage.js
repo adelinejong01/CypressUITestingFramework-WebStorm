@@ -20,6 +20,12 @@ class checkoutPage{
 
     checkSuccessAlert(){
         return cy.get('div.alert.alert-success.alert-dismissible')  }
+
+    getAlert(){
+        return cy.get('.alert')  }
+
+    waitForThreeSeconds(){
+        return cy.wait(3000)  }
 }
 
 export default checkoutPage;

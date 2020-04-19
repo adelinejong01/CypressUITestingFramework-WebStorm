@@ -1,20 +1,25 @@
+import angularPage from "../../support/pageObjects/angularPage";
+
 describe("Testing Angular Page to check Cypress functionality", function () {
     beforeEach(function () {
+        const angPageVar = new angularPage();
         cy.log("Navigating to the Angular Practice Page")
-        cy.visit("https://rahulshettyacademy.com/angularpractice/");
+        angPageVar.travelToAngularPage();
     })
 
     it("Angular Page Header", function () {
+        const angPageVar = new angularPage()
         cy.log("Checking the name of the page")
-        cy.get('.navbar-brand').should('contain', "ProtoCommerce");
+        angPageVar.getNavigationBar().should('contain', "ProtoCommerce");
 
         cy.log("Checking if there are Home and Shop subheaders")
-        cy.get(':nth-child(1) > .nav-link').should('contain', "Home");
+        angPageVar.getHomeSubHeader().should('contain', "Home");
 
-        cy.get(':nth-child(2) > .nav-link').should('contain', "Shop")
+        angPageVar.getShopSubHeader().should('contain', "Shop")
     })
 
     it("Filling the form in the Home Page", function () {
+        const angPageVar = new angularPage()
         cy.log("Filling the name field of the form")
         cy.get(':nth-child(1) > .form-control').click().type("Batman");
 

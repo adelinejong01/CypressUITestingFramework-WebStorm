@@ -1,4 +1,4 @@
-class homePage{
+class angularPageII{
     //This deals with the objects on the Home Page. Yayy!! POM started.
     travelToHomePage(){
         return cy.visit("http://www.qaclickacademy.com/") }
@@ -37,4 +37,4 @@ class homePage{
         return cy.get('a[href = "/angularpractice/shop"]') }
 }
 
-export default homePage;
+export default angularPageII;

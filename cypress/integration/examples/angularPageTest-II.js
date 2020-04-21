@@ -1,5 +1,5 @@
 //Importing the page objects from the pageObjects folder
-import homePage from "../../support/pageObjects/homePage";
+import angularPageII from "../../support/pageObjects/angularPage-II";
 import checkoutPage from "../../support/pageObjects/checkoutPage";
 
 describe("Framework 1: Framework Test Suite", function(){
@@ -16,7 +16,7 @@ describe("Framework 1: Framework Test Suite", function(){
     })
 
     it("Verifying the home page", function () {
-        const homePageVar = new homePage();
+        const homePageVar = new angularPageII();
 
         //We call it using this.details or Cypress would not know what variable we are referring to
         homePageVar.getNameBox().type(this.details.name);
@@ -33,7 +33,7 @@ describe("Framework 1: Framework Test Suite", function(){
     })
 
     it("Doing some shopping now!!", function () {
-        const homePageVar = new homePage();
+        const homePageVar = new angularPageII();
         homePageVar.getShopLink().click();
 
         //Using the customized command to click on the cellphone link - Blackberry
@@ -61,7 +61,7 @@ describe("Framework 1: Framework Test Suite", function(){
         checkoutPageVar.getCheckoutButton().click();
 
         //Verifying the values of the total cost and adding the individual costs
-        cy.get('tr td:nth-child(4) strong').each(($el, index, $list) => {
+        checkoutPageVar.getIndividualItemsCost().each(($el, index, $list) => {
             cy.log($el.text());
 
             // const amountString = $el.text();
@@ -74,7 +74,7 @@ describe("Framework 1: Framework Test Suite", function(){
 
         //Deriving the total cost amount from the webpage
         let totalCost = 0;
-        cy.get('h3 strong').then(function(totalCostString){
+        checkoutPageVar.getTotalCartCost().then(function(totalCostString){
             totalCost = parseInt((totalCostString.text().split(" "))[1], 10);
             cy.log("Cart Cost: " + totalCost).then(function () {
                 //Placing an assertion comparing the values

@@ -1,10 +1,10 @@
-import homePage from "../../support/pageObjects/homePage";
+import angularPageII from "../../support/pageObjects/angularPage-II";
 import automationPage from "../../support/pageObjects/automationPage";
 
 describe("Test 2: Running tests on the Automation Practice Page - Part I", function(){
     beforeEach(function () {
         const autoPageVar = new automationPage();
-        //Navigating to the automation practice page
+        cy.log("Navigating to the automation practice page")
         autoPageVar.travelToAutomationPracticePage();
     })
 

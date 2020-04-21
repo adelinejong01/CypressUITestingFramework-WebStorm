@@ -15,6 +15,12 @@ class checkoutPage{
     getTermsConditionsCheckBox(){
         return cy.get('label[for = "checkbox2"]')  }
 
+    getTotalCartCost(){
+        return cy.get('h3 strong')  }
+
+    getIndividualItemsCost(){
+        return cy.get('tr td:nth-child(4) strong')  }
+
     getPurchaseButton(){
         return cy.get('input[value = "Purchase"]')  }
 

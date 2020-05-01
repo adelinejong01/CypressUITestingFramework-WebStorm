@@ -1,4 +1,4 @@
-# CypressUITestingFramework-WebStorm # :egg:
+# CypressUITestingFramework-WebStorm # :lollipop:
 ---------------
 :octocat: A Cypress testing framework which runs few tests which put to test different UI aspects of the following websites:
 https://rahulshettyacademy.com/angularpractice/
@@ -40,6 +40,17 @@ This test script verifies if the header of the webpage consists of "ProtoCommerc
 This test script fills the form in the webpage with the required information and verifies if submitting the information throws an alert saying "Success"
 
 #### 2. AngularShoppingPage ####
+This complete test file consists of two tests on the https://rahulshettyacademy.com/angularpractice/ webpage, but because this test script is mostly concerned with testing the shopping aspect of the webpage, this is referred to as the Angular Shopping Page
+* ***Home Page Verification***
+This test script also verifies the form in the Home Page. But what this does is it uses abstraction to handle the data present in the test script. The test finally verifies that the Entrepreneur button is disabled in the page
+* ***Shopping Test***
+This test script selects the 'Blackberry' and 'Nokia Edge' phones from the shopping catalog and adds them to the cart. The selection is made by saving the logic of adding the phones to cart by using a function called "selectProduct()". This function is called and the names of the phone brands are given as the input.
+* ***Cart Item Verification***
+This test script verifies that the items in the cart are present and that the individual costs of the items in the cart are adding up to the Total Cost calculated in the webpage
+* ***Cart Checkout Test***
+This test script enters the delivery location, makes the purchase and verifies the Success Alert message
+
+
 #### 3. Automation Practice Page Test I ####
 #### 4. Automation Practice Page Test II ####
 #### 5. Home Page Test ####

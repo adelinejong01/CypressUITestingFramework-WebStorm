@@ -15,7 +15,7 @@ describe("Framework 1: Framework Test Suite", function(){
         cy.visit(Cypress.env("angular_url"));
     })
 
-    it("Verifying the home page", function () {
+    it("Home Page Verification", function () {
         const homePageVar = new angularPageII();
 
         //We call it using this.details or Cypress would not know what variable we are referring to
@@ -32,7 +32,7 @@ describe("Framework 1: Framework Test Suite", function(){
         homePageVar.getEntrepreneurButton().should('be.disabled');
     })
 
-    it("Doing some shopping now!!", function () {
+    it("Shopping Test", function () {
         const homePageVar = new angularPageII();
         homePageVar.getShopLink().click();
 
@@ -51,7 +51,7 @@ describe("Framework 1: Framework Test Suite", function(){
         // })
     })
 
-    it("Verifying the items present in the cart", function () {
+    it("Cart Item Verification", function () {
         let sum = 0;
 
         //Declare the home page POM object again
@@ -85,7 +85,7 @@ describe("Framework 1: Framework Test Suite", function(){
         // assert.strictEqual(sum, totalCost, "The values are equal");
     })
 
-    it("Handling the cart items", function () {
+    it("Cart Checkout Test", function () {
         //Declare the home page POM object again
         const checkoutPageVar = new checkoutPage();
 

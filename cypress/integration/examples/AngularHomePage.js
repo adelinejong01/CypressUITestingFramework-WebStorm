@@ -8,7 +8,7 @@ describe("Testing Angular Page to check Cypress functionality", function () {
         angPageVar.travelToAngularPage();
     })
 
-    it("Angular Page Header", function () {
+    it("Angular Home Page: Header", function () {
         const angPageVar = new angularPage()
         cy.log("Checking the name of the page")
         angPageVar.getNavigationBar().should('contain', "ProtoCommerce");
@@ -19,7 +19,7 @@ describe("Testing Angular Page to check Cypress functionality", function () {
         angPageVar.getShopSubHeader().should('contain', "Shop")
     })
 
-    it("Filling the form in the Home Page", function () {
+    it("Angular Home Page: Form", function () {
         const angPageVar = new angularPage()
         const homePageVar = new angularPageII();
 

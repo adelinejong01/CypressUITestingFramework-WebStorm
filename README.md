@@ -1,6 +1,5 @@
-# CypressUITestingFramework-WebStorm #
-
-UITestingFramework-IntelliJ
+# CypressUITestingFramework-WebStorm # :egg:
+---------------
 :octocat: A Cypress testing framework which runs few tests which put to test different UI aspects of the following websites:
 https://rahulshettyacademy.com/angularpractice/
 https://rahulshettyacademy.com/AutomationPractice/
@@ -22,20 +21,25 @@ The framework has used the following tools for handling the many aspects of test
 * Chai
 * Mocha
 
-The testing framework consists of 5 pages of a website. They are:
+The testing framework tests of 5 pages of different websites. They are:
+1. AngularHomePage
+2. AngularShoppingPage
+3. Automation Practice Page Test I
+4. Automation Practice Page Test II
+5. Home Page Test
 
-Angular Page Test I
-Angular Page Test II
-Automation Practice Page Test I
-Automation Practice Page Test II
-Home Page Test
-
-The Angular Page and Automation Practice Page aspect of the different websites contain a lot of test information and hence, it was decided to split them into two different test scripts.
+The Automation Practice Page aspect of the respective website contains a lot of test information and hence, it was decided to split it into two different test scripts.
 
 We will deep-dive into what the respective page files test below:
 
-#### 1. Angular Page Test I ####
-#### 2. Angular Page Test II ####
+#### 1. AngularHomePage ####
+This complete test file consists of two tests on the https://rahulshettyacademy.com/angularpractice/ webpage which is referred to as the Angular Home Page
+* ***Angular Home Page: Header***
+This test script verifies if the header of the webpage consists of "ProtoCommerce", "Home" and "Shop" links
+* ***Angular Home Page: Form***
+This test script fills the form in the webpage with the required information and verifies if submitting the information throws an alert saying "Success"
+
+#### 2. AngularShoppingPage ####
 #### 3. Automation Practice Page Test I ####
 #### 4. Automation Practice Page Test II ####
 #### 5. Home Page Test ####

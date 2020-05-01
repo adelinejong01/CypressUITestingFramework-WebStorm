@@ -68,13 +68,21 @@ This test script, along with verifying the title of the 'Switch Window Example',
 This test script, along with verifying the title of the 'Switch Tab Example', verifies that clicking on the 'Open Tab' button opens a new tab with the required URL
 
 #### 4. Automation Practice Page Test II ####
+This complete test file consists of seven tests on the https://rahulshettyacademy.com/AutomationPractice/ page which is referred to as the Practice Page:
 * ***Switch To Alert Functionality: Part I***
+This test script, along with verifying the title of the 'Switch To Alert Example', verifies that entering the required text in the textbox and clicking on the 'Alert' generates the respective popup with the respective information
 * ***Switch To Alert Functionality: Part II***
+This test script verifies that entering the required text in the textbox and clicking on the 'Confirm' generates the respective popup with the respective information
 * ***Web Table Example: Part I***
+This test script, along with verifying the title of the 'Web Table Example', verifies that the cost of a certain course in the web table matches the expected value
 * ***Web Table Example: Part II***
+This test script verifies that the addition of the costs of a few courses in the web table is matching the expected value
 * ***Element Displayed Example***
+This test script, along with verifying the title of the 'Element Displayed Example', verifies that clicking on the 'Hide' and 'Show' options results in the respective actions being performed on the text box
 * ***Mouse Hover Example***
+This test script, along with verifying the title of the 'Mouse Hover Example', verifies that performing the hovering action on the 'Mouse Hover' button and clicking on the 'Hide' or 'Show' options results in the webpage undergoing the respective changes
 * ***Handling frames***
+This test script verifies that the iframe in the web page contains the 'Mentorship' section and that the size of a certain element is 2
 
 #### 5. Home Page Test ####
 * ***Closing Alert***

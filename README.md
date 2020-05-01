@@ -85,7 +85,12 @@ This test script, along with verifying the title of the 'Mouse Hover Example', v
 This test script verifies that the iframe in the web page contains the 'Mentorship' section and that the size of a certain element is 2
 
 #### 5. Home Page Test ####
+This test file consists of four tests on the http://www.qaclickacademy.com/ page which is referred to as the Home Page:
 * ***Closing Alert***
+This test script verifies that the alert box which appears on the web page contains the 'NO THANKS' button and clicks on it
 * ***Handling Title Text***
+This test script verifies that the web page contains the header text called "Featured Courses"
 * ***Alert Subscription***
+This test script verifies that the alert box which appears on the web page contains the 'Subscribe Now' button, clicks on it and verified that the alert saying 'This field is required' is thrown
 * ***Email Subscription Test***
+This test script enters the email address in the 'Enter Your Email' textbox on the alert and verifies that the subscription is successful

@@ -8,20 +8,20 @@ describe('Started testing the home page for the QA Click Academy page', function
     })
 
     //This TC is to test the functionality of closing the alert
-    it("Closing the alert by clicking on 'NO THANKS'", function(){
+    it("Closing Alert", function(){
         const homePageVar = new angularPageII()
         //Clicking on the NO THANKS button
         homePageVar.getAlertBox().contains('NO THANKS').click();
     })
 
     //This test is for validating that the text "Featured Courses" can be seen on the page
-    it("Handling the title text of the page", function () {
+    it("Handling Title Text", function () {
         const homePageVar = new angularPageII()
         homePageVar.getTitleBox().contains("Featured Courses");
     })
 
     //This TC is to verify the error message after clicking 'Subscribe Now' without providing the email id
-    it("Handling the alert by subscribing to it", function () {
+    it("Alert Subscription", function () {
         const homePageVar = new angularPageII()
         //Click on 'Subscribe Now' without entering an email-id
         homePageVar.getAlertBox().contains('Subscribe Now').click();
@@ -33,7 +33,7 @@ describe('Started testing the home page for the QA Click Academy page', function
 
     //This test is to enter the email in the alert box and then click 'Subscribe Now'
     //We later close the alert box and verify that is absent on the DOM of the page
-    it("Entering the email and Subscribing for the email", function () {
+    it("Email Subscription Test", function () {
         const homePageVar = new angularPageII()
         //Verifying if the alert exists in the DOM of the page
         homePageVar.getAlertBox().should('exist');

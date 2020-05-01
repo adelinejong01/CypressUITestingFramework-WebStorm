@@ -4,9 +4,13 @@ import automationPageII from "../../support/pageObjects/automationPageII";
 
 describe("Running tests on the Automation Practice Page - Part II", function(){
     beforeEach(function () {
-        const autoPageVar = new automationPage();
-        //Navigating to the automation practice page
-        autoPageVar.travelToAutomationPracticePage();
+        cy.fixture('dataFile').then(function (data) {
+            //here we are assigning the 'data' value to the 'details' which is a global variable and can be accessed from any part of the function
+            this.details = data;
+        })
+
+        //We are calling the environmental variables from the 'cypress.json' file
+        cy.visit(Cypress.env("automationPractice_url"));
     })
 
     //This test is to test Alert functionality - Alert Button

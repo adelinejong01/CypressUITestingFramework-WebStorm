@@ -1,6 +1,6 @@
-# CypressUITestingFramework-WebStorm :tangerine:#
+# CypressUITestingFramework-WebStorm #
 ---------------
-:octocat: A Cypress testing framework which runs few tests which put to test different UI aspects of the following websites:
+:octocat: A Cypress :tangerine: testing framework which runs few tests which put to test different UI aspects of the following websites:
 https://rahulshettyacademy.com/angularpractice/  
 https://rahulshettyacademy.com/AutomationPractice/  
 http://www.qaclickacademy.com/  
@@ -51,13 +51,21 @@ This test script verifies that the items in the cart are present and that the in
 This test script enters the delivery location, makes the purchase and verifies the Success Alert message
 
 #### 3. Automation Practice Page Test I ####
+This complete test file consists of seven tests on the https://rahulshettyacademy.com/AutomationPractice/ page which is referred to as the Practice Page:
 * ***Automation Practice Page Header***
+This test script verifies the functionality of the header of the Automation Practice page by also verifying the links to 'Home', 'Practice', 'Login' and 'Signup' pages
 * ***Radio Button Example Functionality***
+This test script, along with verifying the title of the 'Radio Button Example', selects radio buttons and verifies that the action has been committed
 * ***Dropdown Functionality: Suggestion Class Example***
+This test script, along with verifying the title of the 'Suggestion Class Example', enters the text 'Ven', selects 'Venezuela' from the dropdown options and verifies that the text is present in the textbox
 * ***Dropdown Functionality: Dropdown Example***
+This test script, along with verifying the title of the 'Dropdown Example', selects Option1 and verifies that the dropbox text is 'Option1'
 * ***Checkbox Functionality***
+The test script, along with verifying the title of the 'Checkbox Example',  checks a few checkboxes and verifies that they have been checked  
 * ***Switch Window Functionality***
+This test script, along with verifying the title of the 'Switch Window Example', verifies that clicking on the 'Open Window' button triggers the 'openWindow()' function
 * ***Switch Tab Functionality***
+This test script, along with verifying the title of the 'Switch Tab Example', verifies that clicking on the 'Open Tab' button opens a new tab with the required URL
 
 #### 4. Automation Practice Page Test II ####
 * ***Switch To Alert Functionality: Part I***

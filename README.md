@@ -100,7 +100,9 @@ This test script enters the email address in the 'Enter Your Email' textbox on t
 The instructions below are for Windows OS:
 *	Download the ZIP folder of the project after opening the https://github.com/SriSatyaKalyan/CypressUITestingFramework-WebStorm link
 
-![alt text](https://github.com/SriSatyaKalyan/Images/blob/master/Cypress%20ReadMe%20pictures/PictureOne.png)
+<p align="center">
+  <img src="https://github.com/SriSatyaKalyan/Images/blob/master/Cypress%20ReadMe%20pictures/PictureOne.png">
+</p>
 
 *	Download the ‘Windows Installer(.msi)’ from https://nodejs.org/en/download/ site
 *	Run the .msi installer, accept the terms of the License Agreement, keep clicking Next by opting the default settings and Finish the installation

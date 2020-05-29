@@ -3,7 +3,8 @@
 :octocat: A Cypress :tangerine: testing framework which runs few tests which put to test different UI aspects of the following websites:
 https://rahulshettyacademy.com/angularpractice/  
 https://rahulshettyacademy.com/AutomationPractice/  
-http://www.qaclickacademy.com/  
+http://www.qaclickacademy.com/
+
 ---------------
 ## DESCRIPTION ##
 The test scripts were not built based on a set of specific test cases. They were designed to learn and to test specific aspects of the websites, giving ample scope to leverage the multiple features of Cypress.
@@ -94,6 +95,7 @@ This test script verifies that the web page contains the header text called "Fea
 This test script verifies that the alert box which appears on the web page contains the 'Subscribe Now' button, clicks on it and verified that the alert saying 'This field is required' is thrown
 * ***Email Subscription Test***
 This test script enters the email address in the 'Enter Your Email' textbox on the alert and verifies that the subscription is successful
+
 ---------------
 ## INSTALLATION ##
 

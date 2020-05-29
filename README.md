@@ -159,5 +159,5 @@ The instructions below are for Windows OS:
   <img src="https://github.com/SriSatyaKalyan/Images/blob/master/Cypress%20ReadMe%20pictures/PictureNine.png">
 </p>
 
-*	By hitting on the ‘Run all specs’ button with the browser selected to ‘Chrome’, we can see the tests running.
+*	By hitting on the ‘Run all specs’ button with the browser selected to ‘Chrome’, we can see the tests running in the Chrome browser
 ---------------

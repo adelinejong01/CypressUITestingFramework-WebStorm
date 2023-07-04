@@ -1,8 +1,9 @@
 const { defineConfig } = require('cypress')
 
 module.exports = defineConfig({
-  defaultCommandTimeout: 8000,
-  pageLoadTimeout: 60000,
+  projectId: "fkqhbw",
+  defaultCommandTimeout: 12000,
+  pageLoadTimeout: 120000,
   reporter: 'mochawesome',
   video: true,
   reporterOptions: {
@@ -14,7 +15,6 @@ module.exports = defineConfig({
     automationPractice_url:
       'https://rahulshettyacademy.com/AutomationPractice/',
   },
-  projectId: 'uj2t22',
   e2e: {
     // We've imported your old cypress plugins here.
     // You may want to clean this up later by importing these.

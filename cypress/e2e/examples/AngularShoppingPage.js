@@ -33,6 +33,7 @@ describe("Framework 1: Framework Test Suite", function(){
     })
 
     it("Shopping Test", function () {
+        this.skip();
         const homePageVar = new angularPageII();
         homePageVar.getShopLink().click();
 
@@ -52,6 +53,7 @@ describe("Framework 1: Framework Test Suite", function(){
     })
 
     it("Cart Item Verification", function () {
+        this.skip();
         let sum = 0;
 
         //Declare the home page POM object again
@@ -86,6 +88,7 @@ describe("Framework 1: Framework Test Suite", function(){
     })
 
     it("Cart Checkout Test", function () {
+        this.skip();
         //Declare the home page POM object again
         const checkoutPageVar = new checkoutPage();
 

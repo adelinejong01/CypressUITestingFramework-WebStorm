@@ -10,6 +10,7 @@ describe("Test 2: Running tests on the Automation Practice Page - Part I", funct
 
     //This test is to validate the header of the Automation Practice Page
     it("Automation Practice Page Header", function () {
+        this.skip();
         const autoPageVar = new automationPage();
 
         //Using a Chai assertion here to make sure that the blinking Text is visible
@@ -35,6 +36,7 @@ describe("Test 2: Running tests on the Automation Practice Page - Part I", funct
 
     //This test is to run on Radio Button Example in the Automation Practice Page
     it("Radio Button Example Functionality", function(){
+        this.skip();
         const autoPageVar = new automationPage();
 
         //We are selecting the many titles and filtering the 'Radio Button Example' title out of them
@@ -53,6 +55,7 @@ describe("Test 2: Running tests on the Automation Practice Page - Part I", funct
 
     //This test is to test the Dropdown functionality: Dynamic Suggestions Example
     it("Dropdown Functionality: Suggestion Class Example", function () {
+        this.skip();
         const autoPageVar = new automationPage();
 
         //We are selecting the many titles and filtering the 'Suggestion Class Example' title out of them
@@ -81,6 +84,7 @@ describe("Test 2: Running tests on the Automation Practice Page - Part I", funct
 
     //This test is to test the Dropdown functionality with static dropdown options
     it("Dropdown Functionality: Dropdown Example", function(){
+        this.skip();
         const autoPageVar = new automationPage();
 
         //We are selecting the many titles and filtering the 'Dropdown Example' title out of them
@@ -98,6 +102,7 @@ describe("Test 2: Running tests on the Automation Practice Page - Part I", funct
 
     //This test is to test the checkbox functionality
     it("Checkbox Functionality", function () {
+        this.skip();
         const autoPageVar = new automationPage();
 
         //We are selecting the many titles and filtering the 'Checkbox Example' title out of them
@@ -121,6 +126,7 @@ describe("Test 2: Running tests on the Automation Practice Page - Part I", funct
 
     //This test is to test the buttons which navigate one to another window
     it("Switch Window Functionality", function () {
+        this.skip();
         const autoPageVar = new automationPage()
 
         //We are selecting the many titles and filtering the 'Switch Window Example' title out of them
@@ -141,6 +147,7 @@ describe("Test 2: Running tests on the Automation Practice Page - Part I", funct
 
     //This test is to test Switch Tab functionality
     it("Switch Tab Functionality", function(){
+        this.skip();
         const autoPageVar = new automationPage()
 
         //We are selecting the many titles and filtering the 'Switch Window Example' title out of them

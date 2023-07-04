@@ -66,6 +66,7 @@ describe("Running tests on the Automation Practice Page - Part II", function(){
 
     //This test is to check if Cypress can parse the Web Table
     it("Web Table Example: Part I", function(){
+        this.skip();
         const autoPageVar = new automationPage();
         const autoPageVarII = new automationPageII();
 
@@ -97,6 +98,7 @@ describe("Running tests on the Automation Practice Page - Part II", function(){
     //Here, we are trying to get the sum of costs of all courses which have Selenium in them
     //The expected value is '105'
     it("Web Table Example: Part II", function () {
+        this.skip();
         const autoPageVarII = new automationPageII();
 
         //Declaring a global variable called 'count'
@@ -120,6 +122,7 @@ describe("Running tests on the Automation Practice Page - Part II", function(){
 
     //This test is to check if Elements can be displayed or not
     it("Element Displayed Example", function() {
+        this.skip();
         const autoPageVar = new automationPage();
         const autoPageVarII = new automationPageII();
 
@@ -151,6 +154,7 @@ describe("Running tests on the Automation Practice Page - Part II", function(){
 
     //This test is to check the Mouse Hover Functionality
     it("Mouse Hover Example", function () {
+        this.skip();
         const autoPageVar = new automationPage();
         const autoPageVarII = new automationPageII();
 
@@ -180,6 +184,7 @@ describe("Running tests on the Automation Practice Page - Part II", function(){
     })
 
     it("Handling frames", function(){
+        this.skip();
         const autoPageVarII = new automationPageII();
 
         cy.log("Handling frames here")

@@ -4,7 +4,7 @@
   "description": "This is a demo project for practising Cypress",
   "main": "index.js",
   "scripts": {
-    "test": "cypress run",
+    "test": "cypress run --config-file cypress.config.js",
     "headModeTest": "npm run test -- --headed",
     "testFolder": "npm run test -- --spec \"cypress/e2e/examples/*\"",
     "totalSuiteKey": "npm run test -- --record --key 5db0ed04-0409-46f3-85b4-d480c65526f1",

@@ -1,0 +1,74 @@
+Authentication & Portfolio Entitlement Flow:
+
+
+The flow begins with a user (represented by the people icon) who has a JWT Token with a User Role
+Two main portfolio entitlement checks occur through:
+a) RADAR .NET API - Performs portfolio entitlement checks against the U2ID database
+b) Eagle API (Non-PBS) - Performs portfolio entitlement checks against the EGL database
+The Download Consumer receives JWT tokens with System Role (similar to ASR's) and passes params and user's role based on NT group
+The system validates user permissions through multiple layers before allowing access
+
+
+Download Architecture (Producer/Consumer):
+
+
+The Download Producer initiates the process by:
+
+Storing params and NTID information
+Sending this information to a Queue
+
+
+The Download Consumer then:
+
+Processes requests from the queue
+Interfaces with the Auth API for validation
+Passes NTID and retrieves user's NT Groups
+Communicates with RPR/RPRS systems through utility programs (pRADAR*, ppRADAR*)
+
+
+
+
+SAME (Standardized Attribution Model Engine):
+This is an integrated system that:
+
+
+Is part of the Performance Blue Sky (PBS) Project (Track 3)
+Involves collaboration between RPMD AR, IRP and TG BPS RPMD
+Features a unified attribution engine with analytics capabilities
+Has both front-end and back-end components that communicate with various data sources
+
+
+The SAME Architecture shows:
+
+
+A Radar Front-End and Back-End structure
+API integration layer
+Structural Benchmark Constructor
+Standardized Performance Attribution module
+Data Abstraction layer interfacing with Eagle API and other corporate data sources
+
+Computation Engine Layer:
+
+Features "Enhanced Eagle" at the top portion for performance calculation and analytics
+Also includes "Enhanced Python" in the lower portion for performance attribution
+
+
+Publishing Layer (Middle):
+
+Contains APIs that serve as intermediaries between the computation engines and the user interface
+Both Enhanced Eagle and Enhanced Python components connect to their respective APIs
+
+
+User Interface Layer:
+
+Contains a component labeled "RADAR" which appears to be the frontend interface
+RADAR receives data from both API endpoints
+
+
+
+Some key architectural points:
+
+The system is clearly separated into distinct functional layers
+There's a separation between performance calculation/analytics (Eagle) and performance attribution (Python)
+Both computational components communicate through standardized APIs
+The architecture follows a clean separation of concerns with computation, publishing, and presentation layers

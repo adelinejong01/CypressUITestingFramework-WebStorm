@@ -1,0 +1,14 @@
+1) Steered Observability Standards  
+Implemented structured JSON logging across all microservices, ensuring logs are easily parsable and queryable in Datadog. Established standardized logging formats, including correlation IDs for tracing requests across distributed systems. Defined key measurement statistics in Datadog using metrics like P95 latency, error rates, and Apdex scores to improve application performance monitoring. Created and shared a reference template dashboard in Datadog that aggregates logs, traces, and metrics across the entire portfolio, enabling engineers to quickly diagnose performance issues and anomalies.  
+
+2) Enhanced Test-Driven Development (TDD) Practices  
+Increased test coverage across core business logic and API endpoints using Vitest, reducing regression issues in deployments. Introduced best practices for mocking external dependencies such as databases and third-party APIs, improving test reliability. Encouraged the use of property-based testing and edge-case scenario coverage to strengthen test robustness. Incorporated unit and integration tests into CI/CD pipelines with GitHub Actions, ensuring automated validation of changes before merging to production.  
+
+3) Cloud-First Strategy Implementation  
+Migrated multiple confidential applications to cloud-native architectures, leveraging AWS services such as ECS for containerized workloads and RDS for managed database solutions. Optimized deployment of containerized applications on on-premise VMs by implementing secure Vault-based secret management and centralized identity and access control via AWS IAM. Improved scalability and resilience by adopting event-driven patterns using SNS and SQS for decoupling services and enhancing fault tolerance.  
+
+4) Tech Stack & Best Practices  
+Deepened expertise in Python by optimizing asynchronous task execution with Celery and Redis, reducing processing time for background jobs. Enhanced frontend maintainability by adopting React Hooks and TypeScript generics for stricter type safety. Standardized GitHub repository structures according to poly-repo guidelines, enabling clearer separation of concerns and easier onboarding for new developers. Streamlined CI/CD workflows using GitHub Actions with environment-based deployment strategies, reducing manual intervention in releases.  
+
+5) Growth & Learning  
+Developed an in-depth understanding of system performance metrics, analyzing CPU utilization, memory consumption, and network latencies to optimize service efficiency. Explored key challenges in distributed performance, including database connection pooling strategies and handling concurrent request spikes. Designed and presented an updated application architecture diagram that maps service interactions, data flows, and potential bottlenecks, improving cross-team understanding of system dependencies and performance optimization areas.  
